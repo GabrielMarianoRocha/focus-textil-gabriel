@@ -6,7 +6,7 @@ exports.createOrder = async (req, res) => {
     try {
         const order = await Order.create(req.body);
         const client = await Client.findById(order.clientId);
-        if (!client) return res.status(404).json({ error: 'Client not found' });
+        if (!client) return res.status(404).json({ error: 'Cliente não encontrado' });
 
         await Log.create({ client, order });
         res.status(201).json(order);
@@ -27,7 +27,7 @@ exports.getOrders = async (req, res) => {
 exports.updateOrder = async (req, res) => {
     try {
         const order = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if (!order) return res.status(404).json({ error: 'Order not found' });
+        if (!order) return res.status(404).json({ error: 'Pedido não encontrado' });
         res.json(order);
     } catch (err) {
         res.status(400).json({ error: err.message });
