@@ -1,11 +1,7 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-})
+//61yUR8hRwkTmjkpC
+mongoose.connect('mongodb+srv://gabriell21022003:61yUR8hRwkTmjkpC@teste.nu3lj.mongodb.net/?retryWrites=true&w=majority&appName=Teste')
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
